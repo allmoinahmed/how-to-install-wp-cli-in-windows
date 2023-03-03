@@ -1,0 +1,34 @@
+WP-CLI Windows Installation:
+
+I faced many problems while installing wp-cli to my windows. Recently, i found a easy installation guidance & i thought i should share it with all.
+
+Steps:
+1. Download wp-cli.phar from here: https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+
+2. Create a Folder called 'wp-cli' (or anything you want). Put the wp-cli.phar in that new folder. For Ex mine is: C:\wp-cli\wp-cli.phar . (You can place the .phar file anywhere you want)
+
+3. When you install WP-CLI on Windows, it is recommended that you create a batch file so you can run your commands without typing the full path to the phar file.
+
+4. Create Batch File: Open your favorite editor & create a file named 'wp.bat'. Put this code inside before you close it :
+
+@ECHO OFF
+c:/your/actual/path/to/php.exe "c:/wp-cli/wp-cli.phar" %*
+
+"NOTE": Remember to change the php.exe file path where you installed it.
+
+* First part is where your php.exe file is.
+* Second part is where your wp-cli.phar located
+
+SAVE & CLOSE IT.
+
+5. Windows Path Environment Variable: Go to Windows 'Start Menu' and search 'Environment Variables' ..
+
+6. After you open the 'Environment Variables' option, go to 'Advanced' Tab where you'll find 'Environment Variables' Button. Click to access options.
+
+7. Select 'Path' from 'User variables for YOURUSER' & click EDIT.
+In the “Edit environment variable” window for path, click “New” and type in the path to the wp.bat file we made above (if following the example directly, then that is c:\wp-cli\wp.bat). Click OK ..
+
+8. Now go to 'System Variables' option & Select 'Path'. Click 'New' and add the wp-cli.bat location/path. Ex: C:\wp-cli .. Click OK & restart the command prompt.
+
+Now try typing wp and you'll all the option for wp-cli.
+Hope this helped a little. Thanks
